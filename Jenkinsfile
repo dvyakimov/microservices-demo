@@ -5,9 +5,9 @@ pipeline {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
         script {
-          docker.build("front-end")
+          def customImage = docker.build("front-end")
+          customImage.push()
         }
-
       }
     }
 
