@@ -16,7 +16,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying'
-        build 'Deploy_o_Kubernetes_CD'
+        script {
+           kubernetesDeploy(configs: "complete-deploy.yaml", kubeconfigId: "k8s-config")
+         }
       }
     }
 
