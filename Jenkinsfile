@@ -8,6 +8,7 @@ pipeline {
           def customImage = docker.build("front-end")
           customImage.push()
         }
+
       }
     }
 
