@@ -4,7 +4,6 @@ pipeline {
     stage('Build') {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
-        sh 'pwd && ls -l'
         script {
           docker.build("front-end")
         }
