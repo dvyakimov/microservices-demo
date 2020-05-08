@@ -15,7 +15,6 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo 'Deploying'
         git 'https://github.com/dvyakimov/microservices-demo.git'
         dir(path: 'deploy/kubernetes/') {
           script {
