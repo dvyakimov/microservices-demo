@@ -15,7 +15,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        dir(path: '/home/ubuntu') {
+        dir(path: 'home/ubuntu') {
           echo 'Deploying'
           script {
             kubernetesDeploy(configs: 'complete-demo.yaml', kubeconfigId: "kubeconfig")
