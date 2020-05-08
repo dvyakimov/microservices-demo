@@ -5,7 +5,7 @@ pipeline {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
         sh 'pwd && ls -l'
-        sh 'make test-image'
+        sh 'sudo make test-image'
       }
     }
 
