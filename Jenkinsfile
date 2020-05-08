@@ -9,8 +9,10 @@ pipeline {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
         script {
-          def customImage = docker.build("dvyakimov/front-end:latest")
+          def customImage = docker.build registry + ":$BUILD_NUMBER"
+          docker.withRegistry( '', registryCredential ) {
           customImage.push()
+          }
         }
 
       }
