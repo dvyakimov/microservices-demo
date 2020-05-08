@@ -1,8 +1,4 @@
 pipeline {
-  environment {
-    registry = "dvyakimov/front-end"
-    registryCredential = 'dvyakimov'
-  }
   agent any
   stages {
     stage('Build') {
@@ -11,7 +7,7 @@ pipeline {
         script {
           def customImage = docker.build registry + ":$BUILD_NUMBER"
           docker.withRegistry( '', registryCredential ) {
-          customImage.push()
+            customImage.push()
           }
         }
 
@@ -37,5 +33,9 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    registry = 'dvyakimov/front-end'
+    registryCredential = 'dvyakimov'
   }
 }
