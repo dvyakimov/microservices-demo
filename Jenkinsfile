@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'No Build'
+        git 'https://github.com/microservices-demo/front-end.git'
+        sh 'pwd && ls -l'
+        sh 'make test-image'
       }
     }
 
