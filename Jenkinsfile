@@ -5,7 +5,7 @@ pipeline {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
         sh 'pwd && ls -l'
-        sh 'sudo make test-image'
+        docker.build(("front-end", ".")
       }
     }
 
