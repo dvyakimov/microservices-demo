@@ -15,12 +15,13 @@ pipeline {
 
     stage('Deploy') {
       steps {
-          echo 'Deploying'
-          sh 'pwd'
-          git 'https://github.com/dvyakimov/microservices-demo.git'
-          script {
-            kubernetesDeploy(configs: 'complete-demo.yaml', kubeconfigId: "kubeconfig")
+        echo 'Deploying'
+        sh 'pwd'
+        git 'https://github.com/dvyakimov/microservices-demo.git'
+        script {
+          kubernetesDeploy(configs: 'complete-demo.yaml', kubeconfigId: "kubeconfig")
         }
+
       }
     }
 
