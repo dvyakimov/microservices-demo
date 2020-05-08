@@ -9,6 +9,7 @@ pipeline {
           docker.withRegistry( '', registryCredential ) {
             customImage.push()
           }
+          sh "docker rmi $registry:$BUILD_NUMBER"
         }
 
       }
