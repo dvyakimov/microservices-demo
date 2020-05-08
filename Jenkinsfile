@@ -17,7 +17,7 @@ pipeline {
       steps {
         echo 'Deploying'
         git 'https://github.com/dvyakimov/microservices-demo.git'
-        sh 'ls -l'
+        sh 'cd microservices-demo/deploy/kubernetes/'
         script {
           kubernetesDeploy(configs: 'complete-demo.yaml', kubeconfigId: "kubeconfig")
         }
