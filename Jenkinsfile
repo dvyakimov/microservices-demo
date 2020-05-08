@@ -5,11 +5,11 @@ pipeline {
       steps {
         git 'https://github.com/microservices-demo/front-end.git'
         script {
-          def customImage = docker.build registry + ":$BUILD_NUMBER"
+          def customImage = docker.build registry + ":latest"
           docker.withRegistry( '', registryCredential ) {
             customImage.push()
           }
-          sh "docker rmi $registry:$BUILD_NUMBER"
+          sh "docker rmi $registry:latest"
         }
 
       }
