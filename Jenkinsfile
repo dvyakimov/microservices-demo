@@ -15,11 +15,13 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo 'Deploying'
-        script {
-          kubernetesDeploy(configs: '/home/ubuntu/complete-demo.yaml', kubeconfigId: "kubeconfig")
+        dir ('/home/ubuntu'){
+          echo 'Deploying'
+          sh 'ls -l'
+          script {
+            kubernetesDeploy(configs: '/home/ubuntu/complete-demo.yaml', kubeconfigId: "kubeconfig")
+          }
         }
-
       }
     }
 
