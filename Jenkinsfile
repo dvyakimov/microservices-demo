@@ -1,4 +1,8 @@
 pipeline {
+  environment {
+    registry = "dvyakimov/front-end"
+    registryCredential = 'dvyakimov'
+  }
   agent any
   stages {
     stage('Build') {
